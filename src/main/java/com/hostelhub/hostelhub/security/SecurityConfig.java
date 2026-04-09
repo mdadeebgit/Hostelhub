@@ -33,7 +33,7 @@ public class SecurityConfig {
     private final CustomUserDetailsService userDetailsService;
     private final JwtAuthenticationFilter jwtAuthFilter;
 
-    @Value("${ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000}")
+    @Value("${ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000,https://hostelhub-rust.vercel.app}")
     private String allowedOrigins;
 
     @Bean
