@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || '/api' })
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'https://hostelhub-production-b28a.up.railway.app/api' })
 
 api.interceptors.request.use(config => {
   const token = localStorage.getItem('hh_token')
