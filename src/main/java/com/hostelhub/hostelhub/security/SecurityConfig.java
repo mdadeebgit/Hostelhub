@@ -34,7 +34,7 @@ public class SecurityConfig {
     private final CustomUserDetailsService userDetailsService;
     private final JwtAuthenticationFilter jwtAuthFilter;
 
-    @Value("${ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000,https://hostelhub-rust.vercel.app}")
+    @Value("${ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000,https://*.vercel.app}")
     private String allowedOrigins;
 
     @Bean
@@ -60,7 +60,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList(allowedOrigins.split(",")));
+        config.setAllowedOriginPatterns(Arrays.asList(allowedOrigins.split(",")));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(false);
